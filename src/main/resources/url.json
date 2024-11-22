@@ -1,0 +1,23 @@
+{
+  "blog": {
+    "tistory": {
+      "url": "https://www.tistory.com/search",
+      "query": "keyword",
+      "cssSelector": "div.item_group a"
+    },
+    "naver": {
+      "url": "https://section.blog.naver.com/Search/Post.naver",
+      "query": "keyword",
+      "cssSelector": "a.desc_inner"
+    },
+    "velog": {
+      "url": "https://velog.io/search",
+      "query": "q",
+      "cssSelector": ".sc-dtMgUX.cxZFvl a"
+    }
+  },
+  "news": [
+  ],
+  "shopping": [
+  ]
+}

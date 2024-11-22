@@ -1,7 +1,7 @@
 package user.whrjs.demo.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,5 +21,4 @@ class HomeControllerTest {
         mvc.perform(get("/"))
                 .andExpect(status().isOk());
     }
-
 }
