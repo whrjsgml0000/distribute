@@ -1,0 +1,5 @@
+spring:
+  transaction:
+    default-timeout: 5000
+server:
+  port: 8080
