@@ -33,6 +33,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.json:json:20231013'
+	implementation 'org.seleniumhq.selenium:selenium-java:4.25.0'
+	implementation 'org.seleniumhq.selenium:selenium-firefox-driver:4.25.0'
 }
 
 tasks.named('test') {

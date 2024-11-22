@@ -6,6 +6,11 @@
 </head>
 <body>
 <form action="/search" method="get">
+    <select name="option">
+        <option value="blog">블로그</option>
+        <option value="news">뉴스</option>
+        <option value="shopping">쇼핑</option>
+    </select>
     <label>검색<input type="search" name="q"></label>
     <input type="submit" value="검색">
 </form>
