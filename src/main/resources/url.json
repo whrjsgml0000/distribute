@@ -4,23 +4,79 @@
       "name": "tistory",
       "url": "https://www.tistory.com/search",
       "query": "keyword",
-      "cssSelector": "div.item_group a"
+      "cssSelector": "a.link_cont.zoom_cont",
+      "title": "",
+      "absolute": true
     },
     {
       "name": "naver",
       "url": "https://section.blog.naver.com/Search/Post.naver",
       "query": "keyword",
-      "cssSelector": "a.desc_inner"
+      "cssSelector": "a.desc_inner",
+      "title": "",
+      "absolute": true
     },
     {
       "name": "velog",
       "url": "https://velog.io/search",
       "query": "q",
-      "cssSelector": ".sc-dtMgUX.cxZFvl a"
+      "cssSelector": ".sc-dtMgUX.cxZFvl a",
+      "title": ".sc-dtMgUX.cxZFvl a h2",
+      "absolute": false,
+      "prefix": "https://velog.io/"
     }
   ],
   "news": [
+    {
+      "name": "",
+      "url": "",
+      "query": "",
+      "cssSelector": "",
+      "title": "",
+      "absolute": true
+    },
+    {
+      "name": "",
+      "url": "",
+      "query": "",
+      "cssSelector": "",
+      "title": "",
+      "absolute": true
+    },
+    {
+      "name": "",
+      "url": "",
+      "query": "",
+      "cssSelector": "",
+      "title": "",
+      "absolute": true
+    }
   ],
   "shopping": [
+    {
+      "name": "coupang",
+      "url": "https://www.coupang.com/np/search",
+      "query": "q",
+      "cssSelector": "a.search-product-link.hover-style-E",
+      "title": "div.name",
+      "absolute": false,
+      "prefix": "https://www.coupang.com/"
+    },
+    {
+      "name": "naver",
+      "url": "https://search.shopping.naver.com/search/all",
+      "query": "query",
+      "cssSelector": "a.product_link__TrAac._nlog_click",
+      "title": "a.product_link__TrAac._nlog_click",
+      "absolute": true
+    },
+    {
+      "name": "gmarket",
+      "url": "https://www.gmarket.co.kr/n/search",
+      "query": "keyword",
+      "cssSelector": "span.text__item-title>a.link__item",
+      "title": "span.text__item",
+      "absolute": true
+    }
   ]
 }

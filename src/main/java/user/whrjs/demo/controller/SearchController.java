@@ -20,7 +20,7 @@ public class SearchController {
     @GetMapping("/search")
     public String search(@RequestParam("q") String q, @RequestParam("option") String option, Model model) {
         Category category = Enum.valueOf(Category.class, option.toUpperCase());
-        String search = searchService.search(q, category);
+        String search = searchService.searchParallel(q, category);
 
         model.addAttribute("q", search);
         return "home";

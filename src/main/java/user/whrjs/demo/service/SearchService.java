@@ -3,6 +3,8 @@ package user.whrjs.demo.service;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,7 @@ import user.whrjs.demo.util.JsonParser;
 public class SearchService {
     private final JsonParser jsonParser = new JsonParser();
 
-    public String search(String q, Category category) {
+    public String searchParallel(String q, Category category) {
         List<DTO> parsedData = jsonParser.getParsedData(category);
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addPreference("USER_AGENT",
@@ -23,20 +25,21 @@ public class SearchService {
 
         for (DTO d : parsedData) {
             String url = getUriWithQuery(q, d);
-            extracted(firefoxOptions, url);
+            searchParallel(firefoxOptions, url, d);
         }
 
         return null;
     }
 
-    private void extracted(FirefoxOptions firefoxOptions, String url) {
+    private void searchParallel(FirefoxOptions firefoxOptions, String url, DTO d) {
         new Thread(() -> {
             RemoteWebDriver driver = null;
             try {
                 driver = new RemoteWebDriver(new URL("http://localhost:4444"), firefoxOptions);
                 driver.get(url);
-                String title = driver.getTitle();
-                System.out.println(title);
+
+                List<WebElement> elements = driver.findElements(By.cssSelector(d.getCssSelector()));
+                System.out.println(elements.size());
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             } finally {

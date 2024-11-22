@@ -19,6 +19,6 @@ class SearchServiceTest {
     @Test
     @DisplayName("검색 기능 확인")
     void search() {
-        searchService.search("김치", Category.BLOG);
+        searchService.searchParallel("김치", Category.BLOG);
     }
 }
