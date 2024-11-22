@@ -7,7 +7,8 @@ public enum Category {
     ;
 
     private final String category;
-    Category(String category){
+
+    Category(String category) {
         this.category = category;
     }
 
