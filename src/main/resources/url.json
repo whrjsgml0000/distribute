@@ -28,28 +28,21 @@
   ],
   "news": [
     {
-      "name": "",
-      "url": "",
-      "query": "",
-      "cssSelector": "",
-      "title": "",
+      "name": "yna",
+      "url": "https://www.yna.co.kr/search/index",
+      "query": "query",
+      "cssSelector": "div.cts_atclst a",
+      "title": "div.cts_atclst a span.tt2",
       "absolute": true
     },
     {
-      "name": "",
-      "url": "",
-      "query": "",
-      "cssSelector": "",
-      "title": "",
-      "absolute": true
-    },
-    {
-      "name": "",
-      "url": "",
-      "query": "",
-      "cssSelector": "",
-      "title": "",
-      "absolute": true
+      "name": "jtbc",
+      "url": "https://news.jtbc.co.kr/search",
+      "query": "keyword",
+      "cssSelector": "div.e1ecreks0.MuiBox-root.my-5vp128 a",
+      "title": "div.e1ecreks0.MuiBox-root.my-5vp128 span.MuiTypography-root.info-title",
+      "absolute": false,
+      "prefix": "https://news.jtbc.co.kr/"
     }
   ],
   "shopping": [
