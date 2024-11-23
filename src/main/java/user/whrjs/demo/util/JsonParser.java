@@ -34,8 +34,7 @@ public class JsonParser {
             dto.setName(json.getString(Parsing.NAME.getData()));
             dto.setUrl(json.getString(Parsing.URL.getData()));
             dto.setQuery(json.getString(Parsing.QUERY.getData()));
-            dto.setCssSelector(Parsing.CSS_SELECTOR.getData());
-            list.add(dto);
+            dto.setCssSelector(json.getString(Parsing.CSS_SELECTOR.getData()));
         }
         return list;
     }
