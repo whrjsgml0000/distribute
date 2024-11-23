@@ -4,8 +4,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -19,6 +22,8 @@ import user.whrjs.demo.util.JsonParser;
 
 @Service
 public class SearchService {
+    private static final Logger log = LogManager.getLogger(SearchService.class);
+    private static int thread = 0;
     private final JsonParser jsonParser = new JsonParser();
 
     public String searchParallel(String q, Category category) {
@@ -30,14 +35,16 @@ public class SearchService {
 
         for (DTO d : parsedData) {
             String url = getUriWithQuery(q, d);
-            searchParallel(firefoxOptions, url, d);
+            log.info(url);
+            threadSearch(firefoxOptions, url, d);
         }
-
+        log.debug("searchParallel close");
         return null;
     }
 
-    private void searchParallel(FirefoxOptions firefoxOptions, String url, DTO d) {
+    private void threadSearch(FirefoxOptions firefoxOptions, String url, DTO d) {
         new Thread(() -> {
+            log.info("Thread " + ++thread + "are(is) Running Now");
             RemoteWebDriver driver = null;
             try {
                 driver = new RemoteWebDriver(new URL("http://localhost:4444"), firefoxOptions);
@@ -49,20 +56,25 @@ public class SearchService {
                 } catch (TimeoutException e) {
                     // 알림이 나타나지 않으면 예외 처리
                 }
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("window.scrollBy(0, 1000)");
 
                 List<WebElement> elements = driver.findElements(By.cssSelector(d.getCssSelector()));
-                System.out.println(elements.size());
+                log.info("URL = " + url + " search result : " + elements.size());
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             } finally {
                 if (driver != null) {
                     driver.quit();
                 }
+                log.info("Thread " + --thread + " are(is) Running Now");
             }
         }).start();
     }
 
     private String getUriWithQuery(String q, DTO d) {
-        return d.getUrl() + "?" + d.getQuery() + q;
+        String url = d.getUrl() + "?" + d.getQuery() + "=" + q;
+        log.info("URL = " + url);
+        return url;
     }
 }

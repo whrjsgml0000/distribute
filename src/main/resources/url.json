@@ -5,7 +5,7 @@
       "url": "https://www.tistory.com/search",
       "query": "keyword",
       "cssSelector": "a.link_cont.zoom_cont",
-      "title": "",
+      "title": "strong.tit_cont",
       "absolute": true
     },
     {
@@ -13,7 +13,7 @@
       "url": "https://section.blog.naver.com/Search/Post.naver",
       "query": "keyword",
       "cssSelector": "a.desc_inner",
-      "title": "",
+      "title": "span.title",
       "absolute": true
     },
     {
@@ -21,7 +21,7 @@
       "url": "https://velog.io/search",
       "query": "q",
       "cssSelector": ".sc-dtMgUX.cxZFvl a",
-      "title": ".sc-dtMgUX.cxZFvl a h2",
+      "title": "a > h2",
       "absolute": false,
       "prefix": "https://velog.io/"
     }
