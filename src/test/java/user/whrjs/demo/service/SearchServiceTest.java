@@ -1,5 +1,7 @@
 package user.whrjs.demo.service;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,7 +20,7 @@ class SearchServiceTest {
 
     @Test
     @DisplayName("검색 기능 확인")
-    void search() {
+    void search() throws ExecutionException, InterruptedException, TimeoutException {
         searchService.searchParallel("김치", Category.BLOG);
     }
 }
