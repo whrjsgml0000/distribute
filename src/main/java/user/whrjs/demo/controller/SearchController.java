@@ -1,5 +1,6 @@
 package user.whrjs.demo.controller;
 
+import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import user.whrjs.demo.config.Category;
+import user.whrjs.demo.dto.ResultDTO;
 import user.whrjs.demo.service.SearchService;
 
 @Controller
@@ -21,12 +24,10 @@ public class SearchController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam("q") String q, @RequestParam("option") String option, Model model) {
+    @ResponseBody
+    public List<ResultDTO> search(@RequestParam("q") String q, @RequestParam("option") String option, Model model) {
         Category category = Enum.valueOf(Category.class, option.toUpperCase());
         log.info("q = " + q + ", option = " + option);
-        String search = searchService.searchParallel(q, category);
-
-        model.addAttribute("q", search);
-        return "home";
+        return searchService.searchParallel(q, category);
     }
 }

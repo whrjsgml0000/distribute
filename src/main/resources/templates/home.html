@@ -41,7 +41,7 @@
     <div class="container" th:each="item : ${array}">
       <h2 th:text="${item.name}"></h2>
       <ul>
-        <li th:each="list : ${item}">${list.title}</li>
+<!--        <li th:each="title : ${item.title}">${title}</li>-->
       </ul>
     </div>
   </body>
