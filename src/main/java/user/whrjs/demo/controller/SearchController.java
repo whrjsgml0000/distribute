@@ -29,11 +29,11 @@ public class SearchController {
     }
 
     @GetMapping("/search")
-    @ResponseBody
-    public List<ResultDTO> search(@RequestParam("q") String q, @RequestParam("option") String option)
+    public String search(@RequestParam("q") String q, @RequestParam("option") String option, Model model)
             throws ExecutionException, InterruptedException, TimeoutException {
         Category category = Enum.valueOf(Category.class, option.toUpperCase());
         log.info("q = " + q + ", option = " + option);
-        return searchService.searchParallel(q, category);
+        model.addAttribute("array", searchService.searchParallel(q,category));
+        return "home";
     }
 }
