@@ -1,7 +1,6 @@
 package user.whrjs.demo.controller;
 
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeoutException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class SearchController {
 
     @GetMapping("/search")
     public String search(@RequestParam("q") String q, @RequestParam("option") String option, Model model)
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws ExecutionException, InterruptedException{
         Category category = Enum.valueOf(Category.class, option.toUpperCase());
         log.info("q = " + q + ", option = " + option);
         model.addAttribute("array", searchService.searchParallel(q, category));
