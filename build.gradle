@@ -19,6 +19,12 @@ configurations {
 	}
 }
 
+jar{
+	manifest {
+		attributes 'Main-Class':'user.whrjs.demo.DemoApplication'
+	}
+}
+
 repositories {
 	mavenCentral()
 }
