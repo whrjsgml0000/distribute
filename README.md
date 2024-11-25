@@ -1,3 +1,21 @@
+# 📦 프로젝트 구조
+
+    ┣ 📂config
+    ┃ ┣ 📜Category.java
+    ┃ ┣ 📜Config.java
+    ┃ ┗ 📜Parsing.java
+    ┣ 📂controller
+    ┃ ┣ 📜HomeController.java
+    ┃ ┗ 📜SearchController.java
+    ┣ 📂dto
+    ┃ ┣ 📜DTO.java
+    ┃ ┗ 📜ResultDTO.java
+    ┣ 📂service
+    ┃ ┗ 📜SearchService.java
+    ┣ 📂util
+    ┃ ┗ 📜JsonParser.java
+    ┗ 📜DemoApplication.java
+
 # Docker 실행 가이드 
 1. 도커를 설치 한다.
 2. 도커 네트워크를 만든다.
