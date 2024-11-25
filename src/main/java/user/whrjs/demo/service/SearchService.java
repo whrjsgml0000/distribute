@@ -30,6 +30,13 @@ public class SearchService {
     private static int thread = 0;
     private final JsonParser jsonParser = new JsonParser();
 
+    /**
+     * 병렬 검색을 진행한 후 그 내용을 모아 반환한다.
+     * 
+     * @param q        검색 키워드
+     * @param category 검색 카테고리
+     * @return         검색 결과 반환
+     */
     public List<ResultDTO> searchParallel(String q, Category category)
             throws ExecutionException, InterruptedException, TimeoutException {
         List<DTO> parsedData = jsonParser.getParsedData(category);

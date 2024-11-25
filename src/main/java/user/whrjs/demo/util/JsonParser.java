@@ -33,25 +33,32 @@ public class JsonParser {
         JSONArray jsonArray = jsonObject.getJSONArray(requestCategory.getCategory());
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject json = (JSONObject) jsonArray.get(i);
-            DTO dto = new DTO();
-            dto.setName(json.getString(Parsing.NAME.getData()));
-            dto.setUrl(json.getString(Parsing.URL.getData()));
-            dto.setQuery(json.getString(Parsing.QUERY.getData()));
-            dto.setCssSelector(json.getString(Parsing.CSS_SELECTOR.getData()));
-            dto.setTitle(json.getString(Parsing.TITLE.getData()));
-            dto.setAbsolute(json.getBoolean(Parsing.ABSOLUTE.getData()));
-            dto.setPrefix(json.optString(Parsing.PREFIX.getData()));
-
-            log.info("name : " + dto.getName());
-            log.info("url : " + dto.getUrl());
-            log.info("query : " + dto.getQuery());
-            log.info("cssSelector : " + dto.getCssSelector());
-            log.info("title : " + dto.getTitle());
-            log.info("absolute : " + dto.getAbsolute());
-            log.info("prefix : " + dto.getPrefix());
-
+            DTO dto = getDto(json);
+            printLogDTO(dto);
             list.add(dto);
         }
         return list;
+    }
+
+    private void printLogDTO(DTO dto) {
+        log.info("name : " + dto.getName());
+        log.info("url : " + dto.getUrl());
+        log.info("query : " + dto.getQuery());
+        log.info("cssSelector : " + dto.getCssSelector());
+        log.info("title : " + dto.getTitle());
+        log.info("absolute : " + dto.getAbsolute());
+        log.info("prefix : " + dto.getPrefix());
+    }
+
+    private DTO getDto(JSONObject json) {
+        DTO dto = new DTO();
+        dto.setName(json.getString(Parsing.NAME.getData()));
+        dto.setUrl(json.getString(Parsing.URL.getData()));
+        dto.setQuery(json.getString(Parsing.QUERY.getData()));
+        dto.setCssSelector(json.getString(Parsing.CSS_SELECTOR.getData()));
+        dto.setTitle(json.getString(Parsing.TITLE.getData()));
+        dto.setAbsolute(json.getBoolean(Parsing.ABSOLUTE.getData()));
+        dto.setPrefix(json.optString(Parsing.PREFIX.getData()));
+        return dto;
     }
 }
