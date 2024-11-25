@@ -1,6 +1,5 @@
 package user.whrjs.demo.service;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.LinkedList;
@@ -8,7 +7,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
@@ -33,7 +31,7 @@ public class SearchService {
     private final JsonParser jsonParser = new JsonParser();
 
     public List<ResultDTO> searchParallel(String q, Category category)
-            throws ExecutionException, InterruptedException, java.util.concurrent.TimeoutException {
+            throws ExecutionException, InterruptedException, TimeoutException {
         List<DTO> parsedData = jsonParser.getParsedData(category);
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         // USER-AGENT 값 수정.
@@ -48,7 +46,7 @@ public class SearchService {
             futures.add(threadSearch(firefoxOptions, url, d));
         }
 
-        for(Future<ResultDTO> future : futures){
+        for (Future<ResultDTO> future : futures) {
             resultDTOS.add(future.get());
         }
 

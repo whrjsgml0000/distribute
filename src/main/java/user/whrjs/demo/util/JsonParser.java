@@ -15,8 +15,8 @@ import user.whrjs.demo.dto.DTO;
 
 public class JsonParser {
     public static final Logger log = LogManager.getLogger(JsonParser.class);
-    private ClassPathResource resource = new ClassPathResource("url.json");
-    private JSONObject jsonObject;
+    private final ClassPathResource resource = new ClassPathResource("url.json");
+    private final JSONObject jsonObject;
 
     public JsonParser() {
         String jsonString = null;
@@ -46,9 +46,9 @@ public class JsonParser {
             log.info("url : " + dto.getUrl());
             log.info("query : " + dto.getQuery());
             log.info("cssSelector : " + dto.getCssSelector());
-            log.info("title : "+dto.getTitle());
-            log.info("absolute : "+dto.getAbsolute());
-            log.info("prefix : "+dto.getPrefix());
+            log.info("title : " + dto.getTitle());
+            log.info("absolute : " + dto.getAbsolute());
+            log.info("prefix : " + dto.getPrefix());
 
             list.add(dto);
         }
