@@ -9,6 +9,7 @@ docker network create grid
 docker run -d -p 4442-4444:4442-4444 --net grid --name selenium-hub selenium/hub:latest
 ```
 4. 셀레니엄 허브에 연결할 노드를 만든다.
++ bash ver.
 ```bash
 docker run -d --net grid -e SE_EVENT_BUS_HOST=selenium-hub \
     --shm-size="2g" \
@@ -16,6 +17,7 @@ docker run -d --net grid -e SE_EVENT_BUS_HOST=selenium-hub \
     -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 \
     selenium/node-firefox:latest
 ```
++ powershall ver.
 ```powershall
 docker run -d --net grid -e SE_EVENT_BUS_HOST=selenium-hub `
     --shm-size="2g" `
