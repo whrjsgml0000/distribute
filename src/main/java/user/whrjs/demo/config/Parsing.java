@@ -5,6 +5,9 @@ public enum Parsing {
     URL("url"),
     QUERY("query"),
     CSS_SELECTOR("cssSelector"),
+    TITLE("title"),
+    ABSOLUTE("absolute"),
+    PREFIX("prefix"),
     ;
     private final String data;
 

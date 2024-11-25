@@ -29,4 +29,12 @@ class JsonParserTest {
         Category category = Enum.valueOf(Category.class, "blog".toUpperCase());
         assertEquals(Category.BLOG, category);
     }
+
+    @Test
+    @DisplayName("log 확인")
+    void getParsedDataWithLog(){
+        JsonParser jsonParser = new JsonParser();
+        List<DTO> parsedData = jsonParser.getParsedData(Category.BLOG);
+        assertEquals("tistory", parsedData.get(0).getName());
+    }
 }
