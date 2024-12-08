@@ -50,3 +50,9 @@ docker run -d --net grid -e SE_EVENT_BUS_HOST=selenium-hub `
 1. cmd 창에서 본인이 원하는 폴더로 이동한 뒤 `git clone https://github.com/whrjsgml0000/distribute.git` 를 실행한다.
 2. 인텔리제이로 DemoApplication.java 파일을 연 다음 실행시킨다.
 3. http://loaclhost:8080 에 접속해 서버가 실행 됐는지 확인한다.
+
+# 작동
+![alt](image/seleniumGrid.png)
+![alt](image/mainPage.png)
+![alt](image/searchResult.png)
+![alt](image/url.png)
